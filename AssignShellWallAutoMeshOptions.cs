@@ -47,7 +47,7 @@ namespace Tomaso
                 GH_ParamAccess.item, false);
             In_Name = pManager.AddTextParameter("Name", "N", "",
                 GH_ParamAccess.list);
-            In_MeshOption = pManager.AddTextParameter("MeshOption", "M", "'Deafult', 'Auto Rectangular', or 'Mesh Nv x Nh'", 
+            In_MeshOption = pManager.AddTextParameter("MeshOption", "M", "'Default', 'Auto Rectangular', or 'Mesh Nv x Nh'", 
                 GH_ParamAccess.item);
             In_AddRestraints = pManager.AddTextParameter("AddRestraints", "A", "'Yes' or 'No'", 
                 GH_ParamAccess.item);

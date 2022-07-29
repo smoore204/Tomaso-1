@@ -30,6 +30,7 @@ namespace Tomaso
         int In_PropName;
         int In_UserName;
         int In_CSys;
+        int Out_Ret;
 
         /// <summary>
         /// Registers all the input parameters for this component.
@@ -59,6 +60,8 @@ namespace Tomaso
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            Out_Ret = pManager.AddIntegerParameter("Ret", "R", "",
+                GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -173,6 +176,7 @@ namespace Tomaso
                 myETABSObject = null;
                 
             }
+            DA.SetData(Out_Ret, Run);
         }
 
         /// <summary>

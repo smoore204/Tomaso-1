@@ -59,8 +59,8 @@ namespace Tomaso
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             bool Run = false;
-            int Zoom = 0;
-            bool Window = true;
+            int Window = 0;
+            bool Zoom = true;
 
             DA.GetData(In_Run, ref Run);
             DA.GetData(In_Zoom, ref Zoom);
@@ -102,7 +102,7 @@ namespace Tomaso
                 //////////////////////////////////////////////////
 
                 //Refresh View
-                ret = mySapModel.View.RefreshView(Zoom, Window);
+                ret = mySapModel.View.RefreshView(Window, Zoom);
 
                 //////////////////////////////////////////////////
 

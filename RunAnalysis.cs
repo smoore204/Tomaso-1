@@ -61,41 +61,38 @@ namespace Tomaso
             if (!DA.GetData(In_Run, ref Run)) { return; }
 
             if (Run)
-            { 
+            {
+                //Dimension the ETABS Object as cOAPI type
                 ETABSv1.cOAPI myETABSObject = null;
-                ETABSv1.cHelper myHelper;
 
+                //Use ret to check if functions return successfully (ret = 0) or fail (ret = nonzero)
+                int ret = -1;
+
+                //Create API helper object
+                ETABSv1.cHelper myHelper;
                 try
                 {
                     myHelper = new ETABSv1.Helper();
                 }
-
                 catch (Exception)
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Cannot create an instance of the Helper object");
                     return;
                 }
-                //Use ret to check if functions return successfully (ret = 0) or fail (ret = nonzero)
-                int ret = -1;
 
-                //create an instance of the ETABS object from the latest installed ETABS
+                //Get the active ETABS object
+                myETABSObject = myHelper.GetObject("CSI.ETABS.API.ETABSObject");
+                ETABSv1.cSapModel mySapModel = default(ETABSv1.cSapModel);
+
                 try
                 {
-                    //create ETABS object
-                    myETABSObject = myHelper.CreateObjectProgID("CSI.ETABS.API.ETABSObject");
+                    mySapModel = myETABSObject.SapModel;
                 }
                 catch (Exception)
                 {
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Cannot start a new instance of the program.");
+                    AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "No running instance of the program found or failed to attach.");
                     return;
                 }
-
-                //start ETABS application
-                ret = myETABSObject.ApplicationStart();
-
-                //Get a reference to cSapModel to access all API classes and functions
-                ETABSv1.cSapModel mySapModel = default(ETABSv1.cSapModel);
-                mySapModel = myETABSObject.SapModel;
 
                 //////////////////////////////////////////////////
 

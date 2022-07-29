@@ -19,10 +19,6 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="RhinoCommon" Version="7.0.20314.3001" />
-  </ItemGroup>
-	
-  <ItemGroup>
     <Reference Include="ETABSv1">
       <HintPath>..\..\..\..\..\Program Files\Computers and Structures\ETABS 19\ETABSv1.dll</HintPath>
     </Reference>
@@ -38,6 +34,9 @@
     <Reference Include="RhinoCommon">
       <HintPath>..\..\..\..\..\Program Files\Rhino 7\System\RhinoCommon.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
   
   <ItemGroup>

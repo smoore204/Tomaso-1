@@ -1,0 +1,12 @@
+C:\Users\Sophie\AppData\Roaming\Grasshopper\Libraries\net48\Tomaso.gha
+C:\Users\Sophie\AppData\Roaming\Grasshopper\Libraries\net48\Tomaso.pdb
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.csproj.AssemblyReference.cache
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.Properties.Resources.resources
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.csproj.GenerateResource.cache
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.AssemblyInfoInputs.cache
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.AssemblyInfo.cs
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.csproj.CoreCompileInputs.cache
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.csproj.CopyComplete
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.gha
+C:\Users\Sophie\Documents\GitHub\Tomaso-1\obj\Debug\net48\Tomaso.pdb

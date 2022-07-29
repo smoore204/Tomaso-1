@@ -98,7 +98,7 @@ namespace Tomaso
             DA.GetData(In_Name, ref iName);
             if (!DA.GetDataList(In_XValue, iXValue)) { return; }
             if (!DA.GetDataList(In_XLabel, iXLabel)) { return; }
-            DA.GetData(In_YBubbleLoc, ref iXBubbleLocation);
+            DA.GetData(In_XBubbleLoc, ref iXBubbleLocation);
             DA.GetData(In_XBubbleVis, ref iXBubbleVisible);
             if (!DA.GetDataList(In_YValue, iYValue)) { return; }
             if (!DA.GetDataList(In_YLabel, iYLabel)) { return; }

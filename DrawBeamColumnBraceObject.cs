@@ -30,6 +30,7 @@ namespace Tomaso
         int In_PropName;
         int In_UserName;
         int In_CSys;
+        int Out_Ret;
 
         /// <summary>
         /// Registers all the input parameters for this component.
@@ -59,6 +60,8 @@ namespace Tomaso
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            Out_Ret = pManager.AddIntegerParameter("Ret", "R", "",
+                GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -75,7 +78,6 @@ namespace Tomaso
             List<string> UserName = new List<string>();
             string CSys = string.Empty;
 
-
             if (!DA.GetData(In_Run, ref Run)) { return; }
             if (!DA.GetDataList(In_Line, Line)) { return; }
             if (!DA.GetDataList(In_Name, Name)) { return; }
@@ -83,6 +85,7 @@ namespace Tomaso
             DA.GetDataList(In_UserName, UserName);
             DA.GetData(In_CSys, ref CSys);
 
+            int ret = 1;
 
             if (Line.Count != Name.Count)
             {
@@ -96,7 +99,7 @@ namespace Tomaso
                 ETABSv1.cOAPI myETABSObject = null;
 
                 //Use ret to check if functions return successfully (ret = 0) or fail (ret = nonzero)
-                int ret = -1;
+                
 
                 //Create API helper object
                 ETABSv1.cHelper myHelper;
@@ -161,22 +164,22 @@ namespace Tomaso
                     ret = mySapModel.FrameObj.AddByCoord(XI, YI, ZI, XJ, YJ, ZJ, ref name, PropName[i], UserName[i], CSys);
                 }
 
-                //////////////////////////////////////////////////
-
                 //Check ret value
                 if (ret != 0)
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "API script FAILED to complete.");
                 }
 
+                
+
                 //Clean up variables
                 mySapModel = null;
                 myETABSObject = null;
-            }
 
-            
+            }
+            DA.SetData(Out_Ret, Run);
         }
-            
+
         
 
         /// <summary>

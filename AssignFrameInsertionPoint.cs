@@ -51,18 +51,22 @@ namespace Tomaso
             In_CardinalPoint = pManager.AddIntegerParameter("CardinalPoint", "C", "This is a numeric value from 1 to 11 that specifies the cardinal point for the frame object. The cardinal point specifies the relative position of the frame section on the line representing the frame object. \n1. bottom left\n2. bottom center\n3. bottom right\n4. middle left\n5. middle center\n6. middle right\n7. top left\n8. top center\n9. top right\n10.centroid\n11. shear center",
                 GH_ParamAccess.item);
             In_Mirror2 = pManager.AddBooleanParameter("Mirror2", "M", "If this item is True, the frame object section is assumed to be mirrored (flipped) about its local 2-axis. ",
-                GH_ParamAccess.item);
+                GH_ParamAccess.item, false);
             In_StiffTransform = pManager.AddBooleanParameter("StiffTransform", "S", "If this item is True, the frame object stiffness is transformed for cardinal point and joint offsets from the frame section centroid. ",
-                GH_ParamAccess.item);
+                GH_ParamAccess.item, false);
             In_Offset1 = pManager.AddNumberParameter("Offset1", "O1", "This is a list of three joint offset distances, in the coordinate directions specified by CSys, at the I-End of the frame object. [L] \nOffset1(0) = Offset in the 1 - axis or X - axis direction\nOffset1(1) = Offset in the 2 - axis or Y - axis direction\nOffset1(2) = Offset in the 3 - axis or Z - axis direction",
-                GH_ParamAccess.list);
+                GH_ParamAccess.list, new List<double> { 0, 0, 0 });
             In_Offset2 = pManager.AddNumberParameter("Offset2", "O2", "This is a list of three joint offset distances, in the coordinate directions specified by CSys, at the J-End of the frame object. [L] \nOffset1(0) = Offset in the 1 - axis or X - axis direction\nOffset1(1) = Offset in the 2 - axis or Y - axis direction\nOffset1(2) = Offset in the 3 - axis or Z - axis direction",
-                GH_ParamAccess.list);
+                GH_ParamAccess.list, new List<double> { 0, 0, 0 });
             In_CSys = pManager.AddTextParameter("CSys", "C", "The name of the coordinate system for the considered point force load. This is Local or the name of a defined coordinate system.",
                 GH_ParamAccess.item, "Local");
             In_ItemType = pManager.AddIntegerParameter("ItemType", "I", "This is one of the following items in the eItemType enumeration: \nObject = 0 \nGroup = 1 \nSelectedObjects = 2 \nIf this item is Objects, the restraint assignment is made to the point object specified by the Name item. \nIf this item is Group, the restraint assignment is made to all point objects in the group specified by the Name item. \nIf this item is SelectedObjects, the restraint assignment is made to all selected point objects and the Name item is ignored.",
                 GH_ParamAccess.item, 0);
 
+            pManager[In_Mirror2].Optional = true;
+            pManager[In_Offset1].Optional = true;
+            pManager[In_Offset2].Optional = true;
+            pManager[In_StiffTransform].Optional = true;
             pManager[In_CSys].Optional = true;
             pManager[In_ItemType].Optional = true;
         }
